@@ -1,0 +1,14 @@
+<div class="container" fxLayout="column">
+  <div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+      <div fxLayout="column">
+        <div class="name">{{ skill.name }}</div>
+        <div class="description">{{ skill.description }}</div>
+      </div>
+      <div
+        class="image"
+        [style.background-image]="'url(' + skill.image + ')'"
+      ></div>
+    </div>
+  </div>
+</div>

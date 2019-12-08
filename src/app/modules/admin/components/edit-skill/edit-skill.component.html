@@ -1,0 +1,58 @@
+<mat-card
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="20px"
+  style="width: 500px; margin: 20px;"
+>
+  <div
+    fxLayout="row"
+    fxFlex="50"
+    fxLayoutAlign="center center"
+    fxLayoutGap="20px"
+  >
+    <img [src]="skill.image" height="100" />
+    <mat-card-title>
+      {{ skill.name }}
+    </mat-card-title>
+  </div>
+  <mat-card-subtitle>
+    {{
+      !skill.firstUsed
+        ? 'not available'
+        : (skill.firstUsed.toDate() | date: 'MM:dd:yyyy')
+    }}
+  </mat-card-subtitle>
+  <p>{{ skill.description }}</p>
+
+  <strong> Tags: </strong>
+  <span *ngFor="let tag of skill.tags"> {{ tag }}</span>
+  <strong> Portfolio Items: </strong>
+  <span *ngFor="let portfolio of skill.portfolioItems">
+    {{ portfolio.name }}</span
+  >
+</mat-card>
+
+<app-add-skill
+  *ngIf="editing"
+  (submitSkill)="updateSkill($event)"
+  [success]="success"
+  [skill]="skill"
+></app-add-skill>
+
+<div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayoutGap="20px"
+  style="margin: 20px;"
+>
+  <div>
+    <button mat-raised-button color="primary" (click)="toggleEdit()">
+      Edit Skill
+    </button>
+  </div>
+  <div>
+    <button mat-raised-button color="warn" (click)="deleteSkill(skill.id)">
+      <img src="../../../../assets/icons/garbage.svg" height="20px" />
+    </button>
+  </div>
+</div>

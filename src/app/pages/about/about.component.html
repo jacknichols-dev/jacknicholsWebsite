@@ -1,14 +1,1 @@
 <p>about works!</p>
-
-<button
-  class="stuff"
-  [ngClass]="{ 'not-stuff': myData.mynumber === 5 }"
-  (click)="makeitFive()"
-  [style.font-size.px]="slider.value"
->
-  Make it 5
-</button>
-
-<mat-slider #slider></mat-slider>
-{{ slider.value }}
-{{ myData.mynumber | json }}

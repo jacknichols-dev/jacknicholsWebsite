@@ -1,0 +1,7 @@
+<div class="grid-container">
+  <app-skill
+    class="grid-item"
+    *ngFor="let skill of skillDocs | async"
+    [skill]="skill"
+  ></app-skill>
+</div>

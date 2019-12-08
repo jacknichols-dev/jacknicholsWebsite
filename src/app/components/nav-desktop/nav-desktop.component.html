@@ -1,0 +1,45 @@
+<div fxLayout="row" fxLayoutAlign="start">
+  <div class="nav-container" [ngClass]="{ show: show }">
+    <div fxFill fxLayout="column" fxLayoutAlign="center center">
+      <button class="menu-button" routerLink="" mat-button>
+        home
+      </button>
+      <button class="menu-button" routerLink="about" mat-button>
+        about
+      </button>
+      <button class="menu-button" routerLink="skills" mat-button>
+        skills
+      </button>
+      <button class="menu-button" routerLink="portfolio" mat-button>
+        portfolio
+      </button>
+      <button class="menu-button" routerLink="contact" mat-button>
+        contact
+      </button>
+      <button (click)="toggleMenu()" class="menu-button" mat-button>CV</button>
+    </div>
+  </div>
+  <div>
+    <button
+      mat-button
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      (click)="toggleMenu()"
+    >
+      <div>
+        <div
+          class="toggle-nav"
+          [ngClass]="{ show: !show }"
+          style="padding-top: 2rem!important;"
+        >
+          <icon size="2.3rem" name="menu" color="rgb(52, 92, 225)"></icon>
+        </div>
+        <span class="toggle-nav" [ngClass]="{ show: show }">
+          <div style="padding: 1rem;font-size: 2.2rem; font-weight: 800;">
+            x
+          </div>
+        </span>
+      </div>
+    </button>
+  </div>
+</div>

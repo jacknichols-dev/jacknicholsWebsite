@@ -1,7 +1,9 @@
-<h1>
-  HelloWorls
-</h1>
+<div fxLayout="row" fxLayoutAlign="start">
+  <app-nav-desktop> </app-nav-desktop>
+  <main fxLayout="column">
+    <router-outlet></router-outlet>
+  </main>
+</div>
 
-<button routerLink="about">About</button>
-<button routerLink="">Home</button>
-<router-outlet></router-outlet>
+
+<icon-definitions [hidden]="true"></icon-definitions>

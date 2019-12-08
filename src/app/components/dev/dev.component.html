@@ -1,0 +1,6 @@
+<button mat-flat-button (click)="ref.detectChanges()"> Detect Changes </button>
+<button mat-flat-button (click)="auth.signOut()"> Sign Out </button>
+<button mat-flat-button routerLink="login"> Login </button>
+<pre>
+{{ auth.user | async | json }}
+</pre>

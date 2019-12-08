@@ -1,0 +1,55 @@
+<mat-card
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="20px"
+  style="width: 500px; margin: 20px;"
+>
+  <div
+    fxLayout="row"
+    fxFlex="50"
+    fxLayoutAlign="center center"
+    fxLayoutGap="20px"
+  >
+    <img [src]="portfolio.image" height="100" />
+    <mat-card-title>
+      {{ portfolio.name }}
+    </mat-card-title>
+  </div>
+  <p>{{ portfolio.description }}</p>
+  <p>{{ portfolio.link }}</p>
+  <p>
+    {{ portfolio?.externalLink ? portfolio.externalLink : 'no external link' }}
+  </p>
+  <strong> Tags: </strong>
+  <span *ngFor="let tag of portfolio.tags"> {{ tag }}</span>
+</mat-card>
+
+<app-add-portfolio
+  *ngIf="editing"
+  (submitPortfolio)="updatePortfolio($event)"
+  [success]="success"
+  [portfolio]="portfolio"
+>
+</app-add-portfolio>
+
+<div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayoutGap="20px"
+  style="margin: 20px;"
+>
+  <div>
+    <button mat-raised-button color="primary" (click)="toggleEdit()">
+      Edit Portfolio
+    </button>
+  </div>
+  <div>
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="deletePortfolio(portfolio.id)"
+    >
+      <img src="../../../../assets/icons/garbage.svg" height="20px" />
+    </button>
+  </div>
+</div>

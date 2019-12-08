@@ -1,0 +1,90 @@
+<form
+  fxLayout="column"
+  fxLayoutGap="10px"
+  fxLayoutAlign="start"
+  [formGroup]="addPortfolioForm"
+  (ngSubmit)="submit()"
+>
+  <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+    <mat-form-field>
+      <input formControlName="name" placeholder="name" matInput type="text" />
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="link" placeholder="link" matInput type="text" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+    <mat-form-field>
+      <input
+        formControlName="externalLink"
+        placeholder="External Link"
+        matInput
+        type="text"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="image" placeholder="image" matInput type="text" />
+    </mat-form-field>
+  </div>
+  <mat-form-field fxFill>
+    <textarea
+      formControlName="description"
+      placeholder="description"
+      matInput
+      fxFill
+    >
+    </textarea>
+  </mat-form-field>
+
+  <button type="button" mat-raised-button (click)="addTag()" color="accent">
+    + Add Tag
+  </button>
+  <div
+    fxLayout="column"
+    fxLayoutGap="15px"
+    formArrayName="tags"
+    *ngFor="
+      let tag of addPortfolioForm.get('tags').value;
+      let i = index;
+      trackBy: trackByFn
+    "
+    fxFill
+  >
+    <div
+      fxLayout="row"
+      fxFlex="100"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+    >
+      <mat-form-field fxFlex="80">
+        <input matInput [formControlName]="i" placeholder="tag" />
+      </mat-form-field>
+      <div fxFlex="20">
+        <button
+          type="button"
+          mat-raised-button
+          color="warn"
+          (click)="deleteTag(i)"
+        >
+          <img src="../../../../assets/icons/garbage.svg" height="20px" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div fxLayoutAlign="center center">
+    <button
+      [disabled]="!addPortfolioForm.valid"
+      mat-flat-button
+      color="primary"
+      type="submit"
+      style="width: 100%;"
+    >
+      <img
+        style="margin-right: 10px;"
+        src="../../../../assets/icons/save.svg"
+        height="20px"
+      />
+      Save Portfolio
+    </button>
+  </div>
+</form>

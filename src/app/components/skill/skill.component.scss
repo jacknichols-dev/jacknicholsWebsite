@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  height: 20rem;
+  margin: 1rem;
+  background-image: linear-gradient(to bottom left, rgb(52, 92, 225), #65c4ff);
+  border: solid white 1rem;
+  border-radius: 0.6rem;
+
+  .name {
+    padding: 1.7rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+    white-space: nowrap;
+    color: white;
+  }
+
+  .image {
+    height: 10rem;
+    width: 10rem;
+    margin: 1rem 1rem 0 0;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    z-index: 100;
+  }
+
+  .description {
+    color: white;
+    width: 19rem;
+    font-size: 1.1rem;
+    padding: 1.7rem;
+  }
+}
